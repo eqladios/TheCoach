@@ -1,6 +1,6 @@
 <h1>Chapters</h1>
-<div class="center jumbotron">
   <% @chapters.each do |chapter| %>
+  <div class="center jumbotron">
   <div class="container">
     <div class="row">
       <%  imagePath = "chapters/" + chapter.number.to_s + ".png" %>
@@ -18,7 +18,7 @@
         <div class="row">
           <% chapter.topics.each do |topic| %>
           <%  imagePath = "topics/" + topic.number.to_s + ".png" %>
-          <div class="col" style="display: inline-block;">
+          <div class="col" style="display: inline-block; margin-right:40px">
             <%=image_tag(imagePath, :alt => "topic image") %>
             <h3><%= link_to topic.title, chapter_topic_path(chapter, topic) %></h3>
             <% if current_user.admin? %>
@@ -33,8 +33,8 @@
       </div>
     </div>
   </div>
-  <% end %>
 </div>
+  <% end %>
 <br>
 <% if current_user.admin? %>
 <div class="adminBtns btn btn-success" style="float:right;"><%= link_to 'New Chapter', new_chapter_path %></div>
