@@ -12,12 +12,8 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @chapter.image %>
-</p>
-
-<p>
-  <strong>Finished:</strong>
-  <%= @chapter.finished %>
+  <%  imagePath = "/chapters/" + @chapter.number + ".png" %>
+  <%= image_tag(imagePath, :alt => "chapter image") %>
 </p>
 
 <%= link_to 'Edit', edit_chapter_path(@chapter) %> |

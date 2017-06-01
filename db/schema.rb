@@ -10,13 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601030925) do
+ActiveRecord::Schema.define(version: 20170601034143) do
 
   create_table "chapters", force: :cascade do |t|
     t.integer  "number"
     t.string   "name"
-    t.string   "image"
-    t.boolean  "finished"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

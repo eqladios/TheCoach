@@ -19,8 +19,6 @@
       <tr>
         <td><%= chapter.number %></td>
         <td><%= chapter.name %></td>
-        <td><%= chapter.image %></td>
-        <td><%= chapter.finished %></td>
         <td><%= link_to 'Show', chapter %></td>
         <td><%= link_to 'Edit', edit_chapter_path(chapter) %></td>
         <td><%= link_to 'Destroy', chapter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
