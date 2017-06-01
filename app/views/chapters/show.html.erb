@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Number:</strong>
   <%= @chapter.number %>
@@ -12,7 +10,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%  imagePath = "/chapters/" + @chapter.number + ".png" %>
+  <%  imagePath = "chapters/" + @chapter.number.to_s + ".png" %>
   <%= image_tag(imagePath, :alt => "chapter image") %>
 </p>
 
