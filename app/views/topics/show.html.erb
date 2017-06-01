@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @topic.number %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @topic.title %>
+</p>
+
+<p>
+  <strong>Htmlcontent:</strong>
+  <%= @topic.htmlContent %>
+</p>
+
+<p>
+  <strong>Chapterid:</strong>
+  <%= @topic.chapterID %>
+</p>
+
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>
