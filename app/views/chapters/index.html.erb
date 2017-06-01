@@ -5,17 +5,32 @@
     <%  imagePath = "chapters/" + chapter.number.to_s + ".png" %>
     <%= image_tag(imagePath, :alt => "chapter image") %>
     <h2><%= chapter.name %></h2>
-    <% chapter.topics.each do |topic| %>
-    <td><p><%= topic.title %></p></td>
+    <% if current_user.admin? %>
+      <div class="adminBtns btn-group" role="group">
+        <button type="button" class="btn btn-success"><%= link_to 'Add Topic', new_chapter_topic_path(chapter) %></button>
+        <button type="button" class="btn btn-info"><%= link_to 'Show', chapter %></button>
+        <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_chapter_path(chapter) %></button>
+        <button type="button" class="btn btn-danger"><%= link_to 'Destroy', chapter, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+      </div><br><br>
     <% end %>
+    <div class="container">
+      <div class="row">
+        <% chapter.topics.each do |topic| %>
+          <%  imagePath = "topics/" + topic.number.to_s + ".png" %>
+          <div class="col" style="display: inline-block;">
+            <%=image_tag(imagePath, :alt => "topic image") %>
+            <h3><%= link_to topic.title, chapter_topic_path(chapter, topic) %></h3>
+            <% if current_user.admin? %>
+              <div class="adminBtns btn-group" role="group">
+                <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_chapter_topic_path(chapter, topic) %></button>
+                <button type="button" class="btn btn-danger"><%= link_to 'Destroy', chapter_topic_path(chapter, topic), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+              </div><br><br>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </tr>
-  <% if current_user.admin? %>
-    <div class="adminBtns btn-group" role="group">
-      <button type="button" class="btn btn-info"><%= link_to 'Show', chapter %></button>
-      <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_chapter_path(chapter) %></button>
-      <button type="button" class="btn btn-danger"><%= link_to 'Destroy', chapter, method: :delete, data: { confirm: 'Are you sure?' } %></button>
-    </div><br><br>
-    <% end %>
 <% end %>
 </div>
 <br>
