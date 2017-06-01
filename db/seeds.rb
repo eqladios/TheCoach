@@ -44,8 +44,8 @@ Topic.create!(number: '17', title: 'Other Structures', htmlContent: '', chapter_
 Topic.create!(number: '18', title: 'Comparison To Sorting', htmlContent: '', chapter_id: '4')
 
 #Chapter 4
-Topic.create!(number: '13', title: 'Generating Subsets', htmlContent: '', chapter_id: '5')
-Topic.create!(number: '14', title: 'Generating Permutations', htmlContent: '', chapter_id: '5')
-Topic.create!(number: '15', title: 'Backtracking', htmlContent: '', chapter_id: '5')
-Topic.create!(number: '16', title: 'Pruning The Search', htmlContent: '', chapter_id: '5')
-Topic.create!(number: '17', title: 'Meet In The Middle', htmlContent: '', chapter_id: '5')
+Topic.create!(number: '19', title: 'Generating Subsets', htmlContent: '', chapter_id: '5')
+Topic.create!(number: '20', title: 'Generating Permutations', htmlContent: '', chapter_id: '5')
+Topic.create!(number: '21', title: 'Backtracking', htmlContent: '', chapter_id: '5')
+Topic.create!(number: '22', title: 'Pruning The Search', htmlContent: '', chapter_id: '5')
+Topic.create!(number: '23', title: 'Meet In The Middle', htmlContent: '', chapter_id: '5')
