@@ -1,10 +1,13 @@
 <h1>Chapters</h1>
-<div class="center jumbotron"
+<div class="center jumbotron">
 <% @chapters.each do |chapter| %>
   <tr>
     <%  imagePath = "chapters/" + chapter.number.to_s + ".png" %>
     <%= image_tag(imagePath, :alt => "chapter image") %>
     <h2><%= chapter.name %></h2>
+    <% chapter.topics.each do |topic| %>
+    <td><p><%= topic.title %></p></td>
+    <% end %>
   </tr>
   <% if current_user.admin? %>
     <div class="adminBtns btn-group" role="group">
