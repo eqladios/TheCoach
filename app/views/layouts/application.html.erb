@@ -14,8 +14,12 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-success" role="alert">
+          <%= msg %>
+          <a href="#" data-dismiss="alert" class="close">×</a>
+        </div>
+      <% end %>
       <%= yield %>
       <%= render 'layouts/footer' %>
     </div>
