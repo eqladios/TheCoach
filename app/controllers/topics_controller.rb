@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  before_action :authorize_admin, only: [:new, :edit, :update, :destroy]
   # GET /chapter/id/topics
   # GET /topics.json
   def index
