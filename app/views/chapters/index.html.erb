@@ -33,10 +33,12 @@
       </div>
     </div>
   </div>
-  <div class="progress">
-    <%= content_tag(:div, "", class: ["progress-bar", "progress-bar-info", "progress-bar-striped"], role: "progressbar", 'aria-valuenow': "0", 'aria-valuemin': "0", 'aria-valuemax': chapter.topics.size)%>
-  </div>
-  <p>0/<%= chapter.topics.size %></p>
+  <% if !current_user.admin? %>
+    <div class="progress">
+      <%= content_tag(:div, "", class: ["progress-bar", "progress-bar-info", "progress-bar-striped"], role: "progressbar", 'aria-valuenow': "0", 'aria-valuemin': "0", 'aria-valuemax': chapter.topics.size)%>
+    </div>
+    <p>0/<%= chapter.topics.size %></p>
+  <% end %>
 </div>
   <% end %>
 <br>
