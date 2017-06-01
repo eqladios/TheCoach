@@ -2,5 +2,6 @@
 
 <%= render 'form', topic: @topic %>
 
-<%= link_to 'Show', @topic %> |
-<%= link_to 'Back', topics_path %>
+<button type="button" class="btn btn-danger"><%= link_to 'Destroy', chapter_topic_path, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+<%= link_to 'Show', chapter_topic_path %> |
+<%= link_to 'Back', chapters_path %>

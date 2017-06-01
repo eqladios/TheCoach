@@ -1,35 +1,39 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
-  # GET /topics
+  # GET /chapter/id/topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @chapter = Chapter.find(params[:chapter_id])
+    @topics = @chapter.topics
   end
 
-  # GET /topics/1
+  # GET chapter/1/topics/1
   # GET /topics/1.json
   def show
   end
 
-  # GET /topics/new
+  # GET chapter/1/topics/new
   def new
-    @topic = Topic.new
+    @chapter = Chapter.find(params[:chapter_id])
+    @topic = @chapter.topics.build
   end
 
-  # GET /topics/1/edit
+  # GET chapter/1/topics/1/edit
   def edit
+    @chapter = Chapter.find(params[:chapter_id])
+    @topic = @chapter.topics.find(params[:id])
   end
 
-  # POST /topics
+  # POST chapter/id/topics
   # POST /topics.json
   def create
-    @topic = Topic.new(topic_params)
-
+    @chapter = Chapter.find(params[:chapter_id])
+    @topic = @chapter.topics.build(topic_params)
     respond_to do |format|
       if @topic.save
-        format.html { redirect_to @topic, notice: 'Topic was successfully created.' }
-        format.json { render :show, status: :created, location: @topic }
+        format.html { redirect_to @chapter, notice: 'Topic was successfully created.' }
+        format.json { render :show, status: :created, location: @chapter }
       else
         format.html { render :new }
         format.json { render json: @topic.errors, status: :unprocessable_entity }
@@ -42,8 +46,8 @@ class TopicsController < ApplicationController
   def update
     respond_to do |format|
       if @topic.update(topic_params)
-        format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
-        format.json { render :show, status: :ok, location: @topic }
+        format.html { redirect_to chapters_path, notice: 'Topic was successfully updated.' }
+        format.json { render :show, status: :ok, location: chapters_path }
       else
         format.html { render :edit }
         format.json { render json: @topic.errors, status: :unprocessable_entity }
@@ -56,7 +60,7 @@ class TopicsController < ApplicationController
   def destroy
     @topic.destroy
     respond_to do |format|
-      format.html { redirect_to topics_url, notice: 'Topic was successfully destroyed.' }
+      format.html { redirect_to chapter_topics_path, notice: 'Topic was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
