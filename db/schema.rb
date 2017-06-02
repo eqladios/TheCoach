@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601080315) do
+ActiveRecord::Schema.define(version: 20170602210010) do
 
   create_table "chapters", force: :cascade do |t|
     t.integer  "number"
@@ -22,9 +22,8 @@ ActiveRecord::Schema.define(version: 20170601080315) do
   create_table "topics", force: :cascade do |t|
     t.integer  "number"
     t.string   "title"
-    t.text     "htmlContent"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "chapter_id"
     t.index ["chapter_id"], name: "index_topics_on_chapter_id"
   end
