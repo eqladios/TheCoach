@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Htmlbody:</strong>
+  <%= @slide.htmlBody %>
+</p>
+
+<p>
+  <strong>Topic:</strong>
+  <%= @slide.topic %>
+</p>
+
+<%= link_to 'Edit', edit_slide_path(@slide) %> |
+<%= link_to 'Back', slides_path %>

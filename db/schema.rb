@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170602210010) do
+ActiveRecord::Schema.define(version: 20170602211716) do
 
   create_table "chapters", force: :cascade do |t|
     t.integer  "number"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "slides", force: :cascade do |t|
+    t.text     "htmlBody"
+    t.integer  "topic_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_slides_on_topic_id"
   end
 
   create_table "topics", force: :cascade do |t|
