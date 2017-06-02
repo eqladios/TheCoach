@@ -30,7 +30,7 @@ class SlidesController < ApplicationController
   # POST /slides.json
   def create
     @topic = Topic.find(params[:topic_id])
-    @slide = @topic.slides.build(topic_params)
+    @slide = @topic.slides.build(slide_params)
 
     respond_to do |format|
       if @slide.save
