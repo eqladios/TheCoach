@@ -6,7 +6,7 @@ class SlidesController < ApplicationController
   # GET /slides.json
   def index
     @topic = Topic.find(params[:topic_id])
-    @slides = @chapter.slides
+    @slides = @topic.slides
   end
 
   # GET /slides/1
