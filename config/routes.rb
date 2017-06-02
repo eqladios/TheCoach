@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  resources :slides
+  resources :topics do
+    resources :slides
+  end
   resources :chapters do
     resources :topics
   end
-  #resources :topics
   resources :chapters
   devise_for :users
   root 'static_pages#home'
