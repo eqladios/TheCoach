@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Slides</h1>
 
 <table>
@@ -16,9 +14,9 @@
       <tr>
         <td><%= slide.htmlBody %></td>
         <td><%= slide.topic %></td>
-        <td><%= link_to 'Show', slide %></td>
-        <td><%= link_to 'Edit', edit_slide_path(slide) %></td>
-        <td><%= link_to 'Destroy', slide, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', topic_slide_path %></td>
+        <td><button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_topic_slide_path(topic,slide) %></button></td>
+        <td><button type="button" class="btn btn-danger"><%= link_to 'Destroy', topic_slide_path(topic,slide), method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Slide', new_slide_path %>
+<%= link_to 'New Slide', new_topic_slide_path(topic) %>
