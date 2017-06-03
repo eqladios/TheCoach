@@ -20,7 +20,11 @@
           <%  imagePath = "topics/" + topic.number.to_s + ".png" %>
           <div class="col" style="display: inline-block; margin-right:40px">
             <%=image_tag(imagePath, :alt => "topic image") %>
-            <h3><%= link_to topic.title, chapter_topic_path(chapter, topic) %></h3>
+            <% if !current_user.admin? %>
+              <h3><%= link_to topic.title, chapter_topic_slides_path(chapter, topic) %></h3>
+            <% else %>
+              <h3><%= link_to topic.title, chapter_topic_path(chapter, topic) %></h3>
+            <% end %>
             <% if current_user.admin? %>
             <div class="adminBtns btn-group" role="group">
               <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_chapter_topic_path(chapter, topic) %></button>
@@ -43,5 +47,5 @@
   <% end %>
 <br>
 <% if current_user.admin? %>
-<div class="adminBtns btn btn-success" style="float:right;"><%= link_to 'New Chapter', new_chapter_path %></div>
+  <div class="adminBtns btn btn-success" style="float:right;"><%= link_to 'New Chapter', new_chapter_path %></div>
 <% end %>
