@@ -7,6 +7,9 @@ class SlidesController < ApplicationController
   def index
     @topic = Topic.find(params[:topic_id])
     @slides = @topic.slides
+    if !current_user.admin?
+      redirect_to chapter_topic_slide_path(@topic.chapter, @topic, @topic.slides.first)
+    end
   end
 
   # GET /slides/1
