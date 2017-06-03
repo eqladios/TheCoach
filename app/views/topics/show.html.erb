@@ -8,5 +8,5 @@
   <%= @topic.title %>
 </p>
 
-<%= link_to 'Edit', edit_chapter_topic_path %> |
+<%= link_to 'Edit', edit_chapter_topic_path(@topic.chapter) %> |
 <%= link_to 'Back', chapters_path %>

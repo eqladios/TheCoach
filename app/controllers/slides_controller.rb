@@ -48,8 +48,8 @@ class SlidesController < ApplicationController
   def update
     respond_to do |format|
       if @slide.update(slide_params)
-        format.html { redirect_to topics_path, notice: 'Slide was successfully updated.' }
-        format.json { render :show, status: :ok, location: topics_path }
+        format.html { redirect_to topic_slides_path, notice: 'Slide was successfully updated.' }
+        format.json { render :show, status: :ok, location: topic_slides_path }
       else
         format.html { render :edit }
         format.json { render json: @slide.errors, status: :unprocessable_entity }
@@ -62,7 +62,7 @@ class SlidesController < ApplicationController
   def destroy
     @slide.destroy
     respond_to do |format|
-      format.html { redirect_to topics_path, notice: 'Slide was successfully destroyed.' }
+      format.html { redirect_to topic_slides_path, notice: 'Slide was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -13,10 +13,10 @@
     <% @slides.each do |slide| %>
       <tr>
         <td><%= slide.htmlBody %></td>
-        <td><%= slide.topic %></td>
-        <td><%= link_to 'Show', topic_slide_path %></td>
-        <td><button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_topic_slide_path(topic,slide) %></button></td>
-        <td><button type="button" class="btn btn-danger"><%= link_to 'Destroy', topic_slide_path(topic,slide), method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
+        <td><%= slide.topic.title %></td>
+        <td><%= link_to 'Show', topic_slide_path(slide, slide.topic) %></td>
+        <td><button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_topic_slide_path(slide.topic,slide) %></button></td>
+        <td><button type="button" class="btn btn-danger"><%= link_to 'Destroy', topic_slide_path(slide.topic,slide), method: :delete, data: { confirm: 'Are you sure?' } %></button></td>
       </tr>
     <% end %>
   </tbody>
