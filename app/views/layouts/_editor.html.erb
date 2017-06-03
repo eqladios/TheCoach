@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Editor</h3>
+    </div>
+    <div class="panel-body">
+      <div id="editor">//Write Your Code Here</div>
+      <div class="dropdown" style="float: right;">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          JavaScript
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li class="langOption">
+            <a href="#" onclick="setLang('c_cpp'); return false;">C/C++</a>
+          </li>
+          <li class="langOption">
+            <a href="#" onclick="setLang('java'); return false;">Java</a>
+          </li>
+          <li class="langOption">
+            <a href="#" onclick="setLang('javascript'); return false;">JavaScript</a>
+          </li>
+          <li class="langOption">
+            <a href="#" onclick="setLang('python'); return false;">Python</a>
+          </li>
+          <li class="langOption">
+            <a href="#" onclick="setLang('pascal'); return false;">Pascal</a>
+          </li>
+          <li class="langOption">
+            <a href="#" onclick="setLang('perl'); return false;">Perl</a>
+          </li>
+          <li class="langOption">
+            <a href="#" onclick="setLang('csharp'); return false;">C#</a>
+          </li>
+          <li class="langOption">
+            <a href="#" onclick="setLang('haskell'); return false;">Haskell</a>
+          </li>
+          <li class="langOption">
+            <a href="#" onclick="setLang('ruby'); return false;">Ruby</a>
+          </li>
+          <li class="langOption">
+            <a onclick="setLang('objectivec'); return false;">Objective-C</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var editor = ace.edit("editor");
+  editor.getSession().setMode("ace/mode/javascript");
+  $(function () {
+    $(".dropdown-menu li a").click(function () {
+      $("#dropdownMenu1").html($(this).text()+" <span class='caret'></span>")
+    });
+  });
+  function setLang(langOption)
+  {
+    var mode = "ace/mode/".concat(langOption);
+    editor.getSession().setMode(mode);
+  }
+</script>
