@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170603002036) do
+ActiveRecord::Schema.define(version: 20170603031731) do
 
   create_table "chapters", force: :cascade do |t|
     t.integer  "number"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 20170603002036) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "number"
+    t.integer  "next_id"
+    t.boolean  "first"
+    t.index ["first"], name: "index_slides_on_first"
+    t.index ["next_id"], name: "index_slides_on_next_id"
     t.index ["topic_id"], name: "index_slides_on_topic_id"
   end
 
