@@ -15,5 +15,5 @@
   <%= @slide.topic %>
 </p>
 
-<%= link_to 'Edit', edit_topic_slide_path %> |
-<%= link_to 'Back', topic_slides_path %>
+<%= link_to 'Show', chapter_topic_slide_path(@slide.topic.chapter, @slide.topic, @slide) %> |
+<%= link_to 'Back', chapter_topic_slides_path(@slide.topic.chapter, @slide.topic) %>

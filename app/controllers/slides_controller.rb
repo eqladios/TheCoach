@@ -23,7 +23,7 @@ class SlidesController < ApplicationController
   # GET /slides/1/edit
   def edit
     @topic = Topic.find(params[:topic_id])
-    @slide = @topic.slides.find(params[:id])
+    # @slide = @topic.slides.find(params[:id])
   end
 
   # POST /slides
@@ -34,8 +34,8 @@ class SlidesController < ApplicationController
 
     respond_to do |format|
       if @slide.save
-        format.html { redirect_to @topic, notice: 'Slide was successfully created.' }
-        format.json { render :show, status: :created, location: @topic }
+        format.html { redirect_to chapter_topic_slides_path(@topic.chapter), notice: 'Slide was successfully created.' }
+        format.json { render :show, status: :created, location: chapter_topic_slides_path(@topic.chapter) }
       else
         format.html { render :new }
         format.json { render json: @slide.errors, status: :unprocessable_entity }
@@ -46,10 +46,11 @@ class SlidesController < ApplicationController
   # PATCH/PUT /slides/1
   # PATCH/PUT /slides/1.json
   def update
+    @topic = Topic.find(params[:topic_id])
     respond_to do |format|
       if @slide.update(slide_params)
-        format.html { redirect_to topic_slides_path, notice: 'Slide was successfully updated.' }
-        format.json { render :show, status: :ok, location: topic_slides_path }
+        format.html { redirect_to chapter_topic_slides_path(@topic.chapter), notice: 'Slide was successfully updated.' }
+        format.json { render :show, status: :ok, location: chapter_topic_slides_path(@topic.chapter) }
       else
         format.html { render :edit }
         format.json { render json: @slide.errors, status: :unprocessable_entity }
@@ -60,9 +61,10 @@ class SlidesController < ApplicationController
   # DELETE /slides/1
   # DELETE /slides/1.json
   def destroy
+    @topic = Topic.find(params[:topic_id])
     @slide.destroy
     respond_to do |format|
-      format.html { redirect_to topic_slides_path, notice: 'Slide was successfully destroyed.' }
+      format.html { redirect_to chapter_topic_slides_path(@topic.chapter), notice: 'Slide was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -75,6 +77,6 @@ class SlidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def slide_params
-      params.require(:slide).permit(:htmlBody, :topic_id)
+      params.require(:slide).permit(:htmlBody, :topic_id, :number)
     end
 end
