@@ -12,8 +12,8 @@
 
 <p>
   <strong>Section:</strong>
-  <%= @problem.section %>
+  <%= @problem.section.name %>
 </p>
 
-<%= link_to 'Edit', edit_problem_path(@problem) %> |
-<%= link_to 'Back', problems_path %>
+<%= link_to 'Edit', edit_section_problem_path(@problem.section,@problem) %> |
+<%= link_to 'Back', section_problems_path(@problem.section) %>

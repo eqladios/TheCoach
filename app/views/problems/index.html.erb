@@ -17,10 +17,10 @@
       <tr>
         <td><%= problem.name %></td>
         <td><%= problem.content %></td>
-        <td><%= problem.section %></td>
-        <td><%= link_to 'Show', problem %></td>
-        <td><%= link_to 'Edit', edit_problem_path(problem) %></td>
-        <td><%= link_to 'Destroy', problem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= problem.section.name %></td>
+        <td><%= link_to 'Show', section_problem_path(problem.section.id,problem.id),:class => "btn btn-info" %></td>
+        <td><%= link_to 'Edit', edit_section_problem_path(problem.section,problem),:class => "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', section_problem_path(problem.section,problem), method: :delete, data: { confirm: 'Are you sure?' },:class => "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'New Problem', new_problem_path %>
+<%= link_to 'New Problem', new_section_problem_path, :class => "btn btn-success" %>

@@ -65,3 +65,11 @@ Slide.create!(number: '3', htmlBody: '<h1>3</h1>', topic_id: '3')
 Slide.create!(number: '1', htmlBody: '<h1>1</h1>', topic_id: '3')
 Slide.create!(number: '2', htmlBody: '<h1>2</h1>', topic_id: '3')
 Slide.create!(number: '3', htmlBody: '<h1>3</h1>', topic_id: '3')
+
+#Create sections
+Section.create!(name: 'Implementation')
+Section.create!(name: 'Math')
+Section.create!(name: 'Greedy')
+Section.create!(name: 'Brute Force')
+Section.create!(name: 'Data Structures')
+Section.create!(name: 'Sorting')

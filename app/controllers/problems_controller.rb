@@ -1,35 +1,40 @@
 class ProblemsController < ApplicationController
   before_action :set_problem, only: [:show, :edit, :update, :destroy]
-
-  # GET /problems
+  before_action :authenticate_user!
+  before_action :authorize_admin, only: [:new, :edit, :update, :destroy]
+  # GET /section/id/problems
   # GET /problems.json
   def index
-    @problems = Problem.all
+    @section = Section.find(params[:section_id])
+    @problems = @section.problems
   end
 
-  # GET /problems/1
+  # GET section/1/problems/1
   # GET /problems/1.json
   def show
   end
 
-  # GET /problems/new
+  # GET section/1/problems/new
   def new
-    @problem = Problem.new
+    @section = Section.find(params[:section_id])
+    @problem = @section.problems.build
   end
 
-  # GET /problems/1/edit
+  # GET section/1/problems/1/edit
   def edit
+    @section = Section.find(params[:section_id])
+    @problem = @section.problems.find(params[:id])
   end
 
-  # POST /problems
+  # POST section/id/problems
   # POST /problems.json
   def create
-    @problem = Problem.new(problem_params)
-
+    @section = Section.find(params[:section_id])
+    @problem = @section.problems.build(problem_params)
     respond_to do |format|
       if @problem.save
-        format.html { redirect_to @problem, notice: 'Problem was successfully created.' }
-        format.json { render :show, status: :created, location: @problem }
+        format.html { redirect_to @section, notice: 'Problem was successfully created.' }
+        format.json { render :show, status: :created, location: @section }
       else
         format.html { render :new }
         format.json { render json: @problem.errors, status: :unprocessable_entity }
@@ -42,8 +47,8 @@ class ProblemsController < ApplicationController
   def update
     respond_to do |format|
       if @problem.update(problem_params)
-        format.html { redirect_to @problem, notice: 'Problem was successfully updated.' }
-        format.json { render :show, status: :ok, location: @problem }
+        format.html { redirect_to sections_path, notice: 'Problem was successfully updated.' }
+        format.json { render :show, status: :ok, location: sections_path }
       else
         format.html { render :edit }
         format.json { render json: @problem.errors, status: :unprocessable_entity }
@@ -56,7 +61,7 @@ class ProblemsController < ApplicationController
   def destroy
     @problem.destroy
     respond_to do |format|
-      format.html { redirect_to problems_url, notice: 'Problem was successfully destroyed.' }
+      format.html { redirect_to section_problems_path, notice: 'Problem was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +74,6 @@ class ProblemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def problem_params
-      params.require(:problem).permit(:name, :content, :section_id)
+      params.require(:problem).permit(:name, :content, :sectionID)
     end
 end
