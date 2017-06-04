@@ -49,3 +49,19 @@ Topic.create!(number: '20', title: 'Generating Permutations', chapter_id: '5')
 Topic.create!(number: '21', title: 'Backtracking', chapter_id: '5')
 Topic.create!(number: '22', title: 'Pruning The Search', chapter_id: '5')
 Topic.create!(number: '23', title: 'Meet In The Middle', chapter_id: '5')
+#Create Slides
+Slide.create!(number: '1', htmlBody: '<h1>1</h1>', topic_id: '1')
+Slide.create!(number: '2', htmlBody: '<h1>2</h1>', topic_id: '1')
+Slide.create!(number: '3', htmlBody: '<h1>3</h1>', topic_id: '1')
+
+Slide.create!(number: '1', htmlBody: '<h1>1</h1>', topic_id: '2')
+Slide.create!(number: '2', htmlBody: '<h1>2</h1>', topic_id: '2')
+Slide.create!(number: '3', htmlBody: '<h1>3</h1>', topic_id: '2')
+
+Slide.create!(number: '1', htmlBody: '<h1>1</h1>', topic_id: '3')
+Slide.create!(number: '2', htmlBody: '<h1>2</h1>', topic_id: '3')
+Slide.create!(number: '3', htmlBody: '<h1>3</h1>', topic_id: '3')
+
+Slide.create!(number: '1', htmlBody: '<h1>1</h1>', topic_id: '3')
+Slide.create!(number: '2', htmlBody: '<h1>2</h1>', topic_id: '3')
+Slide.create!(number: '3', htmlBody: '<h1>3</h1>', topic_id: '3')
