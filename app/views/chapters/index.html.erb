@@ -7,7 +7,7 @@
       <%= image_tag(imagePath, :alt => "chapter image") %>
       <h2><%= chapter.name %></h2>
       <% if current_user.admin? %>
-      <div class="adminBtns btn-group" role="group">
+      <div class="btn-group" role="group">
         <%= link_to 'Add Topic', new_chapter_topic_path(chapter), :class => "btn btn-success" %>
         <%= link_to 'Show', chapter, :class => "btn btn-info" %>
         <%= link_to 'Edit', edit_chapter_path(chapter), :class => "btn btn-warning" %>
@@ -26,7 +26,7 @@
               <h3><%= link_to topic.title, chapter_topic_path(chapter, topic) %></h3>
             <% end %>
             <% if current_user.admin? %>
-            <div class="adminBtns btn-group" role="group">
+            <div class="btn-group" role="group">
               <%= link_to 'Edit', edit_chapter_topic_path(chapter, topic), :class => "btn btn-warning"%>
               <%= link_to 'Destroy', chapter_topic_path(chapter, topic), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
             </div><br><br>
@@ -47,5 +47,5 @@
   <% end %>
 <br>
 <% if current_user.admin? %>
-  <%= link_to 'New Chapter', new_chapter_path, :class => "adminBtns btn btn-success" %>
+  <%= link_to 'New Chapter', new_chapter_path, :class => "btn btn-success", :style => "float: right;"%>
 <% end %>
