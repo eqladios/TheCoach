@@ -1,0 +1,13 @@
+<title><%=@user.email%></title>
+<% if @user == current_user || current_user.admin? %>
+<ul class="users">
+  <div class="border-form-div">
+    <li>
+      <br><%= @user.email %>
+      <br><%= link_to "Back", :back ,  :class => "btn btn-danger"%>
+    </li>
+  </div>
+</ul>
+<% else %>
+<h1>Sorry, you cannot see other users information.</h1>
+<% end %>
