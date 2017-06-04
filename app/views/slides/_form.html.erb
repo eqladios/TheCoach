@@ -21,7 +21,7 @@
     <div id = "editor"><%= f.text_area :htmlBody %></div>
   </div>
   <div class="actions">
-    <button type="button" class="btn btn-success" onclick="confirm()">Confirm</button>
+    <button type="button" class="btn btn-success" id= "confirmBtn" onclick="confirm()">Confirm</button>
     <%= f.submit class: 'btn btn-primary', disabled: 'disabled', id: 'submitBtn'%>
 
   </div>
@@ -54,5 +54,6 @@
       editor.setReadOnly(true);
 
       document.getElementById("submitBtn").removeAttribute("disabled");
+      document.getElementById("confirmBtn").setAttribute("disabled", "disabled");
     }
 </script>
