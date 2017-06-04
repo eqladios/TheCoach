@@ -7,6 +7,6 @@
   <strong>Title:</strong>
   <%= @topic.title %>
 </p>
-
+<%= link_to 'Add Slide', new_topic_slide_path(@topic), :class => "btn btn-success" %>
 <%= link_to 'Edit', edit_chapter_topic_path(@topic.chapter), :class => "btn btn-info" %> |
 <%= link_to 'Back', chapters_path, :class => "btn btn-warning" %>

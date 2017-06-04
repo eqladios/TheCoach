@@ -6,6 +6,7 @@
     <li>
       <div class="border-form-div">
         <h2><%= link_to user.email, user_show_path(user.id) %></h2>
+        <%= link_to 'Show', user_show_path(user.id), :class => "btn btn-primary"  %>
         <%= link_to 'Destroy', user_destroy_path(user.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
       </div>
     </li>

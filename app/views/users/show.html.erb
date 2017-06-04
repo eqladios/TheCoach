@@ -4,7 +4,7 @@
   <div class="border-form-div">
     <li>
       <br><%= @user.email %>
-      <br><%= link_to "Back", :back ,  :class => "btn btn-danger"%>
+      <br><br><%= link_to 'Destroy', user_destroy_path(@user.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %> | <%= link_to "Back", :back ,  :class => "btn btn-warning"%>
     </li>
   </div>
 </ul>
