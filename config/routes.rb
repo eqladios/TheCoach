@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :sections
   get 'users/show/:id', to: 'users#show', as: 'user_show'
   get 'users/destroy/:id', to: 'users#destroy', as: 'user_destroy'
 
