@@ -2,5 +2,5 @@
 
 <%= render 'form', problem: @problem %>
 
-<%= link_to 'Show', section_problem_path(@problem) %> |
-<%= link_to 'Back', section_problems_path(@problem.section) %>
+<%= link_to 'Show', section_problem_path(@problem), :class => 'btn btn-info' %> |
+<%= link_to 'Back', section_problems_path(@problem.section), :class => 'btn btn-danger' %>

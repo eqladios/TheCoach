@@ -1,4 +1,4 @@
-<%= form_for [@section, @problem] do |f| %>
+<%= form_for [@section, @problem], html: {class: "slideform"} do |f| %>
   <% if problem.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(problem.errors.count, "error") %> prohibited this problem from being saved:</h2>
@@ -17,11 +17,42 @@
   </div>
 
   <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+    <label>HTML</label>
+    <div id = "editor"><%= f.text_area :content %></div>
   </div>
 
   <div class="actions">
-    <%= f.submit class: 'btn btn-primary' %>
+    <button type="button" class="btn btn-success" id= "confirmBtn" onclick="confirm()">Confirm</button>
+    <%= f.submit class: 'btn btn-primary', disabled: 'disabled', id: 'submitBtn'%>
   </div>
+
 <% end %>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/html_ruby");
+
+    // var document.getElementById("editor");
+    // <input type="number" value="1" name="slide[number]" id="slide_number">
+    function confirm()
+    {
+      var forms = document.getElementsByClassName("slideform");
+      var form = forms[0];
+      var input = document.createElement("input");
+
+      input.setAttribute("type", "hidden");
+
+      input.setAttribute("name", "problem[content]");
+
+      input.setAttribute("id", "problem_content");
+
+      input.setAttribute("value", editor.getValue());
+
+      form.appendChild(input);
+
+      editor.setReadOnly(true);
+
+      document.getElementById("submitBtn").removeAttribute("disabled");
+      document.getElementById("confirmBtn").setAttribute("disabled", "disabled");
+    }
+</script>

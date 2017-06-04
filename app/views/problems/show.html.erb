@@ -1,19 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @problem.name %>
+  <strong><%= @problem.section.name %></strong>
+  <strong> | <%= @problem.name %></strong>
 </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @problem.content %>
-</p>
+<%= render :inline => @problem.content %>
 
-<p>
-  <strong>Section:</strong>
-  <%= @problem.section.name %>
-</p>
+<%= render 'layouts/editor' %>
 
-<%= link_to 'Edit', edit_section_problem_path(@problem.section,@problem) %> |
-<%= link_to 'Back', section_problems_path(@problem.section) %>
+<button style="float: right;" class="btn btn-success">Submit Solution</button><br><br>
+
+<% if current_user.admin? %>
+<%= link_to 'Edit', edit_section_problem_path(@problem.section,@problem), :class => 'btn btn-info'%>
+<% end %>
+<%= link_to 'Back', section_problems_path(@problem.section), :class => 'btn btn-danger' , :style => 'float: right;' %>
