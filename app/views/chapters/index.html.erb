@@ -27,6 +27,7 @@
             <% end %>
             <% if current_user.admin? %>
             <div class="btn-group" role="group">
+              <%= link_to 'Add Slide', new_topic_slide_path(topic), :class => "btn btn-success" %>
               <%= link_to 'Edit', edit_chapter_topic_path(chapter, topic), :class => "btn btn-warning"%>
               <%= link_to 'Destroy', chapter_topic_path(chapter, topic), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
             </div><br><br>

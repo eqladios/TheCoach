@@ -14,6 +14,7 @@
       <tr>
         <td><%= topic.number %></td>
         <td><%= topic.title %></td>
+        <td><%= link_to 'Add Slide', new_topic_slide_path(topic), :class => "btn btn-success" %></td>
       </tr>
     <% end %>
   </tbody>
