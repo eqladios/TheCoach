@@ -14,5 +14,5 @@
   <%= image_tag(imagePath, :alt => "chapter image") %>
 </p>
 
-<%= link_to 'Edit', edit_chapter_path(@chapter) %> |
-<%= link_to 'Back', chapters_path %>
+<%= link_to 'Edit', edit_chapter_path(@chapter), :class => "btn btn-success" %> |
+<%= link_to 'Back', chapters_path, :class => "btn btn-warning" %>

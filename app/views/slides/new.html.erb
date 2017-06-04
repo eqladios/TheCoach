@@ -2,4 +2,4 @@
 
 <%= render 'form', slide: @slide %>
 
-<%= link_to 'Back', chapter_topic_slides_path(@slide.topic.chapter, @slide.topic) %>
+<%= link_to 'Back', chapter_topic_slides_path(@slide.topic.chapter, @slide.topic), :class => "btn btn-warning" %>

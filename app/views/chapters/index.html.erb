@@ -8,10 +8,10 @@
       <h2><%= chapter.name %></h2>
       <% if current_user.admin? %>
       <div class="adminBtns btn-group" role="group">
-        <button type="button" class="btn btn-success"><%= link_to 'Add Topic', new_chapter_topic_path(chapter) %></button>
-        <button type="button" class="btn btn-info"><%= link_to 'Show', chapter %></button>
-        <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_chapter_path(chapter) %></button>
-        <button type="button" class="btn btn-danger"><%= link_to 'Destroy', chapter, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        <%= link_to 'Add Topic', new_chapter_topic_path(chapter), :class => "btn btn-success" %>
+        <%= link_to 'Show', chapter, :class => "btn btn-info" %>
+        <%= link_to 'Edit', edit_chapter_path(chapter), :class => "btn btn-warning" %>
+        <%= link_to 'Destroy', chapter, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
       </div><br><br>
       <% end %>
       <div class="container">
@@ -27,8 +27,8 @@
             <% end %>
             <% if current_user.admin? %>
             <div class="adminBtns btn-group" role="group">
-              <button type="button" class="btn btn-warning"><%= link_to 'Edit', edit_chapter_topic_path(chapter, topic) %></button>
-              <button type="button" class="btn btn-danger"><%= link_to 'Destroy', chapter_topic_path(chapter, topic), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+              <%= link_to 'Edit', edit_chapter_topic_path(chapter, topic), :class => "btn btn-warning"%>
+              <%= link_to 'Destroy', chapter_topic_path(chapter, topic), method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
             </div><br><br>
             <% end %>
           </div>
@@ -47,5 +47,5 @@
   <% end %>
 <br>
 <% if current_user.admin? %>
-  <div class="adminBtns btn btn-success" style="float:right;"><%= link_to 'New Chapter', new_chapter_path %></div>
+  <%= link_to 'New Chapter', new_chapter_path, :class => "adminBtns btn btn-success" %>
 <% end %>
