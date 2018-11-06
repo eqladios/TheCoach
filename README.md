@@ -1,11 +1,15 @@
-### Getting up and running
+# The Coach [Not Completed]
+A monolothic Rails app, a CMS aimed to provide a way to create more interactive guides for competitive programming and for students to track their progress. 
 
-1.  $ git clone git@github.com:eqladios/TheCoach.git
-2.  $ bundle install
-3.  $ rake db:migrate
-4.  Create Admin account from rails console
+## Getting up and running
 
-## Hosted At [carlcoach.herokuapp.com](carlcoach.herokuapp.com)
+```sh
+$ git clone git@github.com:eqladios/TheCoach.git
+$ bundle install
+$ rake db:migrate
+```
+4.  Create Admin account from Rails console
 
-*   email: admin@admin.com
-*   password: password
+## Hosted At [carlcoach.herokuapp.com](https://carlcoach.herokuapp.com)
++ email: admin@admin.com
++ password: password
