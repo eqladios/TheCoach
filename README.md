@@ -1,5 +1,7 @@
-# The Coach [Not Completed]
+# The Coach
 A monolothic Rails app, a CMS aimed to provide a way to create more interactive guides for competitive programming and for students to track their progress. 
+
+Created with Devise, Bootstrap, Ace Editor and Resort Gem
 
 ## Getting up and running
 
